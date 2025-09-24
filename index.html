@@ -1,5 +1,9 @@
 
 
+
+
+
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -1404,26 +1408,7 @@
             font-weight: 600;
         }
         
-        .launch-status.launched {
-            background: #e8f5e8 !important;
-            color: #2e7d32;
-        }
-        
-        .launch-status.tbd {
-            background: #fff3e0 !important;
-            color: #f57c00;
-        }
-        
-        .launch-status.q3 {
-            background: #e3f2fd !important;
-            color: #1976d2;
-        }
-        
-        .launch-status.na {
-            background: #f5f5f5 !important;
-            color: #666;
-        }
-        
+      
         .contact {
             width: 120px;
             min-width: 120px;
@@ -1559,13 +1544,14 @@
                         <span class="lang-content zh active">Latest Notice</span><span class="lang-content en">Latest News</span>
                     </h2>
                     <div class="news-grid">
-                        <div class="news-item" onclick="openNewsModal('wk34')">
+                      <div class="news-item" onclick="openNewsModal('wk34')">
     <div class="news-header">
-        <h4>WK34 - Partial Refund & Parts Replacement Training Session</h4>
-        <span class="news-date">8/25</span>
+        <h4><span class="lang-content zh active">Partial Refund & Parts Replacement AM Training </span><span class="lang-content en">WK34 - Partial Refund & Parts Replacement Training Session</span></h4>
+        <span class="news-date">WK34</span>
     </div>
     <p class="news-summary">AM面向培训关于部分退款和零部件更换，帮助AM提升知识和更好地推销给卖家。包含新功能概览、培训录音和支持材料。</p>
 </div>
+
                         
                         <div class="news-item" data-week="WK31" onclick="openNewsModal('WK31')">
                             <div class="news-header">
@@ -1608,7 +1594,7 @@
                                 <span class="lang-content en">On August 21, HASP FBA officially launched the Parts replacement feature in EU/US/CA, enabling customers to order individual spare parts for free within the 30-day return period instead of returning the entire product with damaged or missing components, helping sellers save costs and minimize losses.</span>
                             </div>
                             <div class="announcement-item">
-                                <span class="lang-content zh active">8月25日，HASP FBA在EU/US/CA正式上线部分退款（Partial Refund）功能，该服务使卖家能够向客户提供部分退款，而无需客户实际退回商品。能够帮助卖家避免退货成本和与价值回收相关的成本，改善客户体验。</span>
+                                <span class="lang-content zh active">9月18日，HASP FBA在US正式上线部分退款（Partial Refund）功能，EU pending。该服务使卖家能够向客户提供部分退款，而无需客户实际退回商品。能够帮助卖家避免退货成本和与价值回收相关的成本，改善客户体验。</span>
                                 <span class="lang-content en">On August 25, HASP FBA officially launched the Partial Refund feature in EU/US/CA, enabling sellers to provide partial refunds to customers without requiring actual product returns. This helps sellers avoid return costs and value recovery related costs while improving customer experience.</span>
                             </div>
                         </td>
@@ -1902,7 +1888,7 @@
         
         <!-- GTM Tab内容 -->
         <div id="gtm" class="tab-content">
-            <<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -1936,8 +1922,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>卖家诊断与解决方案推荐工具 V3.0</h1>
-            <p>-</p>
+            <h1>卖家诊断与解决方案推荐工具</h1>
+            
         </div>
 
         <div class="upload-section">
@@ -1949,19 +1935,24 @@
 
         <div class="cid-selection">
             <h3>2. 选择卖家CID</h3>
+            <div style="margin-bottom: 15px;">
+                <input type="text" id="cidInput" placeholder="输入CID进行搜索..." disabled style="width: 300px; margin-right: 10px;" />
+                <button id="searchCID" disabled>搜索CID</button>
+            </div>
             <select id="cidSelect" disabled>
                 <option value="">请先上传CSV文件</option>
             </select>
+            <div id="cidNotFound" style="color: red; margin-top: 10px; display: none;">❌ 无法找到该CID，请检查输入是否正确</div>
             <button id="generateReport" disabled>生成报告</button>
         </div>
 
         <div id="reportSection" class="report-section">
             <h2>卖家诊断报告</h2>
-            <div class="output-section"><div class="output-title">Output 1: Seller Profile</div><div id="output1Content"></div></div>
-            <div class="output-section"><div class="output-title">Output 2: Seller Diagnosis</div><div id="output2Content"></div></div>
-            <div class="output-section"><div class="output-title">Output 3: Overall Performance</div><div id="output3Content"></div></div>
-            <div class="output-section"><div class="output-title">Output 4: Blurbs for starting talks</div><div id="output4Content"></div></div>
-            <div class="output-section"><div class="output-title">Output 5: Seller improvement suggestions</div><div id="output5Content"></div></div>
+            <div class="output-section"><div class="output-title">Output 1: 卖家基础表现</div><div id="output1Content"></div></div>
+            <div class="output-section"><div class="output-title">Output 2: 卖家诊断</div><div id="output2Content"></div></div>
+            <div class="output-section"><div class="output-title">Output 3: 整体表现情况</div><div id="output3Content"></div></div>
+            <div class="output-section"><div class="output-title">Output 4: 开场破冰总结话术</div><div id="output4Content"></div></div>
+            <div class="output-section"><div class="output-title">Output 5: 卖家改进建议</div><div id="output5Content"></div></div>
         </div>
     </div>
 
@@ -1972,8 +1963,8 @@
         // 解决方案数据库
         const SOLUTIONS = {
             'HASPIP': {
-                title: 'HASPIP (High ASP Inbound Program)',
-                stage: 'Inbound Solutions',
+                title: 'HASPIP (高客单价入库计划)',
+                stage: '入库阶段解决方案',
                 benefits: [
                     '显著降低入库缺陷率 - 通过使用防毁坏改进胶带封装，可以将入库缺陷(MFI)减少高达70%',
                     '大幅缩短理赔周期 - 从传统的45天缩短到30天以内完成',
@@ -1988,15 +1979,14 @@
                     '卖家自行购买防毁坏胶带，按要求使用防毁坏胶带封箱入库FBA'
                 ],
                 enrollment: [
-                    'AM通过Registration form为卖家注册',
-                    '输入EU/NA CID等信息，务必填写pitch date与launch date',
-                    'form填写成功即注册成功',
-                    '卖家按照要求使用防毁坏胶带封箱'
+                    'Step1: AM通过Registration form为卖家注册：https://beta.console.harmony.a2z.com/hasp-pilots-enrollment-register/ 勾选Enhanced Inbound Service（HASPIP）',
+                    '（请准确填写卖家EU/NA CID等信息，务必填写pitch date与launch date）',
+                    'Step2: 卖家按照要求使用防篡改胶带封箱发货'
                 ]
             },
             'BI': {
-                title: 'BI (Brand Integration)',
-                stage: 'C-Return Solution',
+                title: 'BI (品牌主实时支持)',
+                stage: '退货阶段解决方案',
                 benefits: [
                     '降低可避免的退货率：您的客服团队可以直接与买家实时沟通，及时解答产品使用问题',
                     '获得宝贵的客户洞察：直接了解客户在使用产品时遇到的具体问题，收集真实的客户反馈',
@@ -2010,15 +2000,16 @@
                     '已开通OEM功能'
                 ],
                 enrollment: [
-                    '确认卖家已开通联系制造商功能OEM',
-                    'AM或者卖家通过Qualtrics链接填写信息注册',
-                    '填写Brand ID（AM需查询提供）',
-                    '填写完成后,等待PLS团队10天内确认注册'
+                    'Step1: 确认卖家已开通"联系制造商"功能OEM',
+                    'Step2: AM或者卖家通过Qualtrics链接填写信息注册：https://amazonexteu.qualtrics.com/jfe/form/SV_dijJCIvePVJoFWC',
+                    'Step3: 填写Brand ID（AM需查询提供）通过该网址输入卖家CID查询Brand ID：https://internal.brandregistry.amazon.dev/i/',
+                    'Step4: 卖家确认参与后，AM填写Registration form：https://beta.console.harmony.a2z.com/hasp-pilots-enrollment-register/ 勾选Brand Integration',
+                    'Step5: Qualtrics和Registration form都填写完成后,等待PLS团队10-15天内邮件确认注册, PLS team会发送Amazon Connect登录凭证给卖家'
                 ]
             },
             'RESS': {
-                title: 'RESS (Return Escalation Service Support)',
-                stage: 'C-Return Solution',
+                title: 'RESS (退货申诉专属支持)',
+                stage: '退货阶段解决方案',
                 benefits: [
                     '更高的解决率：您的申诉将直接递交给亚马逊专业调查团队处理，不再需要多次转接',
                     '更快的处理速度：承诺48小时快速响应，为您提供一对一的专属支持',
@@ -2032,14 +2023,14 @@
                     '如果卖家当前无海外仓，需要先与卖家确认当前退货地址'
                 ],
                 enrollment: [
-                    '确认卖家符合基本资格',
-                    'AM通过Registration Form提交注册',
-                    '等待确认邮件告知卖家是否成功加入该项目'
+                    'Step1: 确认卖家符合基本资格（卖家的不可售商品需要选择移除到海外仓）',
+                    'Step2: AM通过Registration Form提交注册：https://beta.console.harmony.a2z.com/hasp-pilots-enrollment-register/ 勾选Return Escalation Support Service',
+                    'Step3: 等待确认邮件告知卖家是否成功加入该项目'
                 ]
             },
             'PartsReplacement': {
-                title: 'Parts Replacement',
-                stage: 'C-Return Solution',
+                title: 'Parts Replacement（零配件补发计划）',
+                stage: '退货阶段解决方案',
                 benefits: [
                     '显著降低退货率 - 避免因小部件问题导致整件退货',
                     '最大限度减少退货损失 - 仅更换损坏的部件，而不是全额产品退货退款',
@@ -2052,15 +2043,16 @@
                     '有海外仓：可选择零配件由海外仓送出或国内直发；无海外仓：零配件需国内直发'
                 ],
                 enrollment: [
-                    'AM 将注册表链接发给卖家进行填写和提交',
-                    '卖家在后台创建零部件的自发货(MFN)ASIN',
-                    '填写Mapping模板并上传到注册表单',
-                    'PLS产品团队创建ASIN mapping关系（SLA：3个工作日）'
+                    'Step1: AM 将注册表链接单发给卖家进行填写和提交（Parts enrollment form: https://amazonexteu.qualtrics.com/jfe/form/SV_6D0EUebL1cvbwhg）',
+                    'Step2: 卖家：a. 在卖家后台创建零部件的自发货(MFN)ASIN---但不需填写库存数量; b. 填写Parts enrollment form注册表单; c. 将零部件ASIN mapping信息填写到Mapping template(注册表单中下载)上传回注册表单并提交注册表单',
+                    'Step3: PLS产品团队将：a. 创建ASIN mapping关系并执行报价抑制（SLA：3个工作日）; b.完成后通过电子邮件联系卖家进行确认',
+                    'Step4: AM确认卖家填写完成Parts enrollment form后，填写Registration Form提交注册：https://beta.console.harmony.a2z.com/hasp-pilots-enrollment-register/ 勾选Replacement Parts',
+                    'Step5: 卖家在收到PLS团队的确认邮件后，卖家在后台编辑对应零部件子AISIN的可售MFN库存数量即可正常生效'
                 ]
             },
             'PartialRefund': {
-                title: 'Partial Refund',
-                stage: 'C-Return Solution',
+                title: 'Partial Refund(部分退款功能）',
+                stage: '退货阶段解决方案',
                 benefits: [
                     '避免退货成本及减少不必要的退货退款 - 免除双向运输费、退货处理费和重新包装费用',
                     '灵活控制 - 您可以按ASIN设置不同的退款比例,完全掌控退款策略',
@@ -2073,13 +2065,15 @@
                     '危险品(HAZMAT)、卫生用品和不可退货商品不能参与该计划'
                 ],
                 enrollment: [
-                    '卖家自注册，从卖家中心右上角的设置下拉菜单中，选择亚马逊物流',
-                    '详细操作指导可通过相关链接查看'
+                    'Step1: 从卖家中心右上角的设置下拉菜单中，选择亚马逊物流-下滑到"FBA退货评估和所有权设置"部分，点击部分退款旁边的"编辑"，出现4个选项，根据实际情况选择启用',
+                    'Step2: 单击"更新"，更改即生效',
+                    'Step3: 后续跟踪请转到FBA退款页面，点击"查看管理退货订单"，查看"退货状态"即可',
+                    'Step4: AM确认卖家开启后，填写Registration Form提交注册：https://beta.console.harmony.a2z.com/hasp-pilots-enrollment-register/ 勾选Partial Refunds'
                 ]
             },
             'WR': {
-                title: 'Warranty Repair',
-                stage: 'C-Return Solution',
+                title: 'Warranty Repair (保修维修)',
+                stage: '退货阶段解决方案',
                 benefits: [
                     '降低成本：把直接退款改为先维修，可以节省30%销货成本，大幅减少产品售出后30天的退货率',
                     '简化流程：通过亚马逊认证的维修中心处理，您只需要提供备件，其他流程亚马逊来处理',
@@ -2093,14 +2087,15 @@
                     '商品品类符合要求：TCEE和OHL类目均适用（家具除外），非日用品类（部分电子婴儿用品除外），非服装家居类（手表除外）'
                 ],
                 enrollment: [
-                    '卖家与维修中心对接：讨论维修费用和服务细节达成协议',
-                    'AM填写Enrollment Quip和Registration Form',
-                    'SAM通过中央团队处理注册，处理时效：2周'
+                    'Step1: 分享条款给卖家：https://sellercentral-europe.amazon.com/ap/signin?clientContext=261-7802520-7333135&openid.return_to=https%3A%2F%2Fsellercentral-europe.amazon.com%2Fgc%2Fsell-online%2Ffba-warranty-repair-programme-terms%3Fref_%3DFBAwarrantyrepair',
+                    'Step2: 卖家与维修中心对接：讨论维修费用和服务细节达成协议（off-Amazon）签署合作协议',
+                    'Step3: AM填写Enrollment Quip:https://quip-amazon.com/elFsADprPaT9/FBAWarrantyRepairSellerEnablement和Registration Form: https://beta.console.harmony.a2z.com/hasp-pilots-enrollment-register/ 勾选Warranty Repair',
+                    'Step4: SAM通过中央团队处理注册，处理时效：2周'
                 ]
             },
             'SVS': {
-                title: 'SVS (Serial Number Validation Services)',
-                stage: 'C-Return Solution',
+                title: 'SVS（序列号验证）',
+                stage: '退货阶段解决方案',
                 benefits: [
                     '可以有效防止商品被调包',
                     '提供从订单到序列号的完整追踪',
@@ -2117,14 +2112,13 @@
                     '仅EU站点可加入'
                 ],
                 enrollment: [
-                    '卖家准备材料：确认商品带有序列号、需要注册的ASIN列表+对应的FNSKU信息',
-                    '通过AM提交注册：AM填写Registration Form',
-                    '处理时效：72小时'
+                    'Step1: 卖家准备材料：确认商品带有序列号、需要注册的ASIN列表+对应的FNSKU信息、序列号样本图片、序列号格式说明',
+                    'Step2: 通过AM提交注册：AM填写Registration Form: https://beta.console.harmony.a2z.com/hasp-pilots-enrollment-register/ 勾选SVS、AM提交Excel Template和SVS Enrolment SIM （处理时效：72小时）'
                 ]
             },
             'GnR': {
-                title: 'GnR (Grade and Resell)',
-                stage: 'Value Recovery Solution',
+                title: 'GnR (评级与转售)',
+                stage: '价值回收阶段解决方案',
                 benefits: [
                     '退货商品的价值回收：最多可以收回原商品价值的80%，这比直接作为不可售商品处理要好得多',
                     '节省仓储和处置成本：避免了仓储积压，又能创造新的销售机会',
@@ -2137,12 +2131,8 @@
                     '卖家登录后台-亚马逊物流设置中自主启用此功能'
                 ],
                 enrollment: [
-                    'AM需在Registration form登记确认记录Effort',
-                    '登录卖家平台',
-                    '进入亚马逊物流设置页面',
-                    '选择不可售商品自动设置',
-                    '启用评级和转售选项',
-                    '设置不同等级商品的价格'
+                    'Step1: 卖家后台操作：a.登录卖家平台 b.进入亚马逊物流设置页面 c.选择"不可售商品自动设置" d.启用评级和转售选项 e.设置不同等级商品的价格',
+                    'Step2: 确认卖家开启后 AM填写Registration form 记录Effort：https://beta.console.harmony.a2z.com/hasp-pilots-enrollment-register/ 勾选Grade and Resell'
                 ]
             }
         };
@@ -2226,6 +2216,8 @@
             const optionCount = select.options.length - 1;
             if (optionCount > 0) {
                 select.disabled = false;
+                document.getElementById('cidInput').disabled = false;
+                document.getElementById('searchCID').disabled = false;
                 document.getElementById('generateReport').disabled = false;
                 const uploadStatus = document.getElementById('uploadStatus');
                 uploadStatus.innerHTML = '✅ 文件解析成功！找到 ' + optionCount + ' 个卖家CID';
@@ -2244,6 +2236,45 @@
             
             generateReport(sellerData);
         });
+
+        // CID搜索功能
+        document.getElementById('searchCID').addEventListener('click', function() {
+            searchCID();
+        });
+
+        document.getElementById('cidInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchCID();
+            }
+        });
+
+        document.getElementById('cidInput').addEventListener('input', function() {
+            document.getElementById('cidNotFound').style.display = 'none';
+        });
+
+        function searchCID() {
+            const inputCID = document.getElementById('cidInput').value.trim();
+            if (!inputCID) return;
+
+            const select = document.getElementById('cidSelect');
+            const notFoundDiv = document.getElementById('cidNotFound');
+            
+            // 查找匹配的CID
+            let found = false;
+            for (let i = 0; i < select.options.length; i++) {
+                if (select.options[i].value === inputCID) {
+                    select.selectedIndex = i;
+                    found = true;
+                    notFoundDiv.style.display = 'none';
+                    break;
+                }
+            }
+            
+            if (!found) {
+                select.selectedIndex = 0; // 重置选择
+                notFoundDiv.style.display = 'block';
+            }
+        }
 
         function generateReport(data) {
             generateOutput1(data);
@@ -2265,7 +2296,7 @@
                     <tr><td><strong>Seller Origin(MP)</strong></td><td>${data['MP'] || '未提供'}</td><td><strong>Seller Main Product Family</strong></td><td>${data['Seller Main Product Family'] || '未提供'}</td></tr>
                     <tr><td><strong>Seller Avg. ASP</strong></td><td>${data['Seller Avg. ASP'] || '未提供'}</td><td><strong>Main FBA GL</strong></td><td>${data['Main FBA GL'] || '未提供'}</td></tr>
                     <tr><td><strong>GMS Band</strong></td><td>${data['GMS Band'] || '未提供'}</td><td><strong>FBA Share%</strong></td><td>${data['FBA Share%'] ? data['FBA Share%'] + '%' : '未提供'}</td></tr>
-                    <tr><td><strong>Brand Owner Flag</strong></td><td>${data['Brand Owner Flag'] || '未提供'}</td><td><strong>with ICWH(oversea warehouse)</strong></td><td>${data['If have ICWH'] || '未提供'}</td></tr>
+                    <tr><td><strong>Brand Owner Flag</strong></td><td>${data['Brand Owner Flag'] || '未提供'}</td><td><strong>是否有ICWH(海外仓)</strong></td><td>${data['If have ICWH'] || '未提供'}</td></tr>
                 </table>
             `;
         }
@@ -2299,16 +2330,17 @@
             document.getElementById('output2Content').innerHTML = `
                 <h4>商品运营周期诊断</h4>
                 <table>
-                    <tr><th>商品运营周期</th><th>Inbound</th><th>C-Return</th><th>Value recovery/Removal SLA</th></tr>
-                    <tr><td><strong>FBA Key Metric</strong></td><td>DPMO: ${dpmo.toLocaleString()}</td><td>CIR Rate: ${(cir * 100).toFixed(2)}%</td><td>GnR Attrited: ${gnrAttrited}</td></tr>
-                    <tr><td><strong>Signal Performance Diagnostics</strong></td><td>${dpmoCategory}</td><td>${cirCategory}</td><td>${gnrAttrited === 1 ? '曾加入GnR后退出' : '未曾加入GnR'}</td></tr>
-                    <tr><td><strong>Seller Potential Painpoints</strong></td><td>${dpmoProblems}</td><td>${cirProblems}</td><td>退货产品价值回收途径少，利润损失高；退货产品清仓时效低，库存积压成本高</td></tr>
+                    <tr><th>商品运营周期</th><th>入库阶段(Inbound)</th><th>退货阶段(C-Return)</th><th>价值回收(Value recovery/Removal SLA)</th></tr>
+                    <tr><td><strong>FBA Key Metric</strong></td><td>DPMO: ${dpmo.toLocaleString()}</td><td>CIR Rate: ${(cir * 100).toFixed(2)}%</td><td>GnR Adopted: ${parseInt(data['GnR Adopted 1/0']) || 0}<br>GnR Attrited: ${gnrAttrited}</td></tr>
+                    <tr><td><strong>Signal Performance诊断</strong></td><td>${dpmoCategory}</td><td>${cirCategory}</td><td>${parseInt(data['GnR Adopted 1/0']) === 1 ? '卖家已在后台开启GnR' : gnrAttrited === 1 ? '曾加入GnR后退出' : '未曾加入GnR'}</td></tr>
+                    <tr><td><strong>卖家潜在痛点分析</strong></td><td>${dpmoProblems}</td><td>${cirProblems}</td><td>退货产品价值回收途径少，利润损失高；退货产品清仓时效低，库存积压成本高</td></tr>
                 </table>
-                <h4>Metrics Introduction</h4>
+                <h4>指标说明</h4>
                 <ul>
                     <li><strong>MFI DPMO</strong>: 每百万机会中发生的缺陷数量，具体含义指：缺陷件数/卖家发货件数的比值*1,000,000</li>
                     <li><strong>CIR Rate</strong>: Customer Initiated Return rate用于衡量消费者发起退货率</li>
                     <li><strong>GnR Attrited</strong>: 该数字是1的时候，说明该卖家曾经Enroll过GnR但后续又关闭</li>
+                    <li><strong>GnR Adopted</strong>: 该数字是1的时候，说明该卖家当前已经Adopt了GnR Program</li>
                 </ul>
             `;
         }
@@ -2366,7 +2398,7 @@
             const valueRecoveryProblems = '退货产品价值回收途径少，利润损失高；退货产品清仓时效低，库存积压成本高';
 
             const script = `
-                <h4>Opening Blurb</h4>
+                <h4>Opening 话术</h4>
                 <div class="pitch-content">
                 你好，我是你的付费/高客单价专属经理，通过分析您的店铺数据，我注意到您是一个高客单价卖家-主营${mainFBAGL}的${brandOwner}卖家，销售平均客单价${avgASP}的高价值商品。<br><br>
                 但同时我也观察到可能影响您业务增长的关键问题：<br><br>
@@ -2398,8 +2430,23 @@
 
             programs.forEach(program => {
                 if (parseInt(data[program.field]) === 1) {
-                    html += generateSolutionHTML(program.name, data);
-                    foundSolutions++;
+                    // 特殊处理GnR逻辑
+                    if (program.name === 'GnR') {
+                        const gnrAdopted = parseInt(data['GnR Adopted 1/0']) || 0;
+                        const gnrAttrited = parseInt(data['GnR Attrited 1/0']) || 0;
+                        
+                        // 如果已经采用GnR，则不显示推荐
+                        if (gnrAdopted === 1) {
+                            return;
+                        }
+                        
+                        // 否则根据attrited状态生成相应话术
+                        html += generateSolutionHTML(program.name, data);
+                        foundSolutions++;
+                    } else {
+                        html += generateSolutionHTML(program.name, data);
+                        foundSolutions++;
+                    }
                 }
             });
 
@@ -2434,7 +2481,15 @@
             } else if (programName === 'SVS') {
                 pitchScript = cir > 0.05 ? solution.pitchHigh : solution.pitchLow;
             } else if (programName === 'GnR') {
-                pitchScript = gnrAttrited === 1 ? solution.pitchAttrited : solution.pitchNew;
+                const gnrAdopted = parseInt(data['GnR Adopted 1/0']) || 0;
+                const gnrAttrited = parseInt(data['GnR Attrited 1/0']) || 0;
+                
+                if (gnrAdopted === 0 && gnrAttrited === 0) {
+                    pitchScript = solution.pitchNew;
+                } else if (gnrAdopted === 0 && gnrAttrited === 1) {
+                    pitchScript = solution.pitchAttrited;
+                }
+                // 如果gnrAdopted === 1，不应该到达这里，因为在generateOutput5中已经过滤了
             }
 
             return `
@@ -2442,34 +2497,34 @@
                     <div class="solution-title">${solution.stage}：${solution.title}</div>
                     
                     <div class="solution-section">
-                        <h5>1. Solution</h5>
+                        <h5>1. 解决方案</h5>
                         <p>${solution.title}</p>
                     </div>
                     
                     <div class="solution-section">
-                        <h5>2. Benefits</h5>
+                        <h5>2. 好处</h5>
                         <ul>
                             ${solution.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
                         </ul>
                     </div>
                     
                     <div class="solution-section">
-                        <h5>3. Recommendation Blurb</h5>
+                        <h5>3. 推荐Pitch话术</h5>
                         <div class="pitch-content">${pitchScript}</div>
                     </div>
                     
                     <div class="solution-section">
-                        <h5>4. Seller eligible requirements</h5>
+                        <h5>4. 卖家加入资格</h5>
                         <ul>
                             ${solution.qualifications.map(qual => `<li>${qual}</li>`).join('')}
                         </ul>
                     </div>
                     
                     <div class="solution-section">
-                        <h5>5. Registration</h5>
-                        <ul>
-                            ${solution.enrollment.map(step => `<li>${step}</li>`).join('')}
-                        </ul>
+                        <h5>5. 开通方式</h5>
+                        <div>
+                            ${solution.enrollment.map(step => `<div style="margin: 8px 0;">${step}</div>`).join('')}
+                        </div>
                     </div>
                 </div>
             `;
@@ -2482,6 +2537,8 @@
     </script>
 </body>
 </html>
+
+          
         </div>
         
         <!-- Knowledge Portal Tab内容 -->
@@ -2492,7 +2549,7 @@
         <div class="faq-section">
             <h2 class="section-title">
                 <span class="section-icon">❓</span>
-                常见FAQ
+                FAQ
             </h2>
             <div class="faq-grid-container">
         
@@ -3712,7 +3769,7 @@
         <div class="news-detail">
             <h4>培训概述</h4>
             <p><strong>时间：</strong>8/25</p>
-            <p><strong>目的：</strong>安排AM面向培训关于部分退款和零部件更换，帮助AM提升知识和更好地推销给卖家。</p>
+            <p><strong>目的：</strong>8.25举办了面向AM培训关于部分退款和零部件更换的内容，帮助AM提升知识和更好地推销给卖家。</p>
             
             <h4>主要议题</h4>
             <ul>
@@ -3725,8 +3782,7 @@
             
             <h5>部分退款 - 市场和卖家资格</h5>
             <ul>
-                <li>启动ETA：8/25</li>
-                <li>可用市场：美国和EU5（英国、法国、德国、意大利、西班牙）</li>
+                <li>可用市场：美国（EU Pending）</li>
                 <li>卖家资格：FBA卖家</li>
                 <li>产品排除：危险材料、卫生产品、不可退货商品</li>
             </ul>
@@ -3765,5 +3821,28 @@
         </div>
     </div>
 </div>
+<script>
+function openNewsModal(modalId) {
+    const modal = document.getElementById(modalId + '-modal');
+    if (modal) {
+        modal.style.display = 'block';
+    }
+}
+
+function closeNewsModal(modalId) {
+    const modal = document.getElementById(modalId + '-modal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// 点击弹窗外部关闭弹窗
+window.onclick = function(event) {
+    if (event.target.classList.contains('news-modal')) {
+        event.target.style.display = 'none';
+    }
+}
+</script>
+
 </body>
 </html>
